@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="7777777" author="Dmytro Romanov">
+        <createTable tableName="movie">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="movie_id_pk" />
+            </column>
+            <column name="description" type="varchar(250)"></column>
+            <column name="genre" type="varchar(250)"></column>
+            <column name="name" type="varchar(250)"></column>
+        </createTable>
+        <createTable tableName="order_ticket">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="order_id_pk" />
+            </column>
+            <column name="price" type="double precisions" />
+            <column name="row_place" type="integer"></column>
+            <column name="seat" type="integer"></column>
+            <column name="movie_id" type="bigint">
+                <constraints nullable="false" notNullConstraintName="order_ticket_movie_id_nn" />
+            </column>
+        </createTable>
+        <addAutoIncrement tableName="movie" columnName="id" columnDataType="bigint" startWith="1" incrementBy="1" />
+        <addAutoIncrement tableName="order_ticket" columnName="id" columnDataType="bigint" startWith="1" incrementBy="1" />
+        <createSequence sequenceName="hibernate_sequence" incrementBy="1" startValue="1" />
+        <addForeignKeyConstraint baseTableName="order_ticket" baseColumnNames="movie_id" constraintName="order_ticket_movie_id_fk" referencedTableName="movie" referencedColumnNames="id" />
+    </changeSet>
+</databaseChangeLog>
