@@ -1,6 +1,8 @@
 package com.example.cinema.domain.data;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.CascadeType;
@@ -14,6 +16,8 @@ import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Movie {
 
@@ -33,4 +37,10 @@ public class Movie {
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private List<OrderTicket> orders;
 
+    public Movie(Long id, String title, String description, String genre) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.genre = genre;
+    }
 }

@@ -1,6 +1,8 @@
 package com.example.cinema.domain.data;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -12,6 +14,8 @@ import javax.persistence.ManyToOne;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class OrderTicket {
 
@@ -31,4 +35,10 @@ public class OrderTicket {
     @ManyToOne
     private Movie movie;
 
+    public OrderTicket(Long id, int rowPlace, int seat, double price) {
+        this.id = id;
+        this.rowPlace = rowPlace;
+        this.seat = seat;
+        this.price = price;
+    }
 }
