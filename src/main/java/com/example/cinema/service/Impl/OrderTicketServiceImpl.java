@@ -12,7 +12,6 @@ import com.example.cinema.repository.OrderTicketRepository;
 import com.example.cinema.service.OrderTicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,7 +44,7 @@ public class OrderTicketServiceImpl implements OrderTicketService {
     public OrderTicketDTO create(CreateOrderTicketDTO createOrderTicketDTO) {
         OrderTicket orderTicket = orderTicketMapper.toCreateEntity(createOrderTicketDTO);
 
-        Movie movie = movieRepository.getById(createOrderTicketDTO.getMovieId());
+        Movie movie = movieRepository.getReferenceById(createOrderTicketDTO.getMovieId());
         orderTicket.setMovie(movie);
 
         return orderTicketMapper.toDto(orderTicketRepository.save(orderTicket));

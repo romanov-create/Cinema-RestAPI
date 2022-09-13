@@ -1,7 +1,6 @@
 package com.example.cinema.domain.data;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.CascadeType;
@@ -15,7 +14,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class Movie {
 
@@ -29,16 +27,10 @@ public class Movie {
     @Column(name = "description")
     private String description;
 
-    //TODO: remake to Enum
     @Column(name = "genre")
     private String genre;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private List<OrderTicket> orders;
 
-    public Movie(String title, String description, String genre) {
-        this.title = title;
-        this.description = description;
-        this.genre = genre;
-    }
 }

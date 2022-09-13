@@ -51,7 +51,7 @@ class MovieControllerTests {
         mockMvc.perform(post("/api/movie")
                         .contentType(APPLICATION_JSON)
                         .content(requestJson))
-                        .andExpect(status().isOk());
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -71,7 +71,7 @@ class MovieControllerTests {
         mockMvc.perform(get("/api/movie/search-by-specification")
                         .contentType(APPLICATION_JSON)
                         .content(requestJson))
-                        .andExpect(status().isOk());
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -86,7 +86,7 @@ class MovieControllerTests {
         mockMvc.perform(put("/api/movie/3")
                         .contentType(APPLICATION_JSON)
                         .content(requestJson))
-                        .andExpect(status().isOk());
+                .andExpect(status().isOk());
     }
 
 }
