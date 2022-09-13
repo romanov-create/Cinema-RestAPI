@@ -1,6 +1,6 @@
-## Cinema-RestAPI
+# Cinema-RestAPI
 _____________________________________________________________________________________________________________
-# How to run project:
+## How to run project:
 1. Make clean-install Maven project
 ![Image Cinema-RestAPI](https://github.com/romanov-create/Cinema-RestAPI/raw/master/images_flow/Screenshot_1.jpg)
 
@@ -18,7 +18,7 @@ ________________________________________________________________________________
 4. test api in Postman (collection add in folder Postman)
 ![Image Cinema-RestAPI](https://github.com/romanov-create/Cinema-RestAPI/raw/master/images_flow/Screenshot_9.jpg)
 
-# How to run test:
+## How to run test:
 1. Make clean-install Maven project
 ![Image Cinema-RestAPI](https://github.com/romanov-create/Cinema-RestAPI/raw/master/images_flow/Screenshot_1.jpg)
 
